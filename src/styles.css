@@ -59,14 +59,14 @@ nav button.triangle-shadow::after {
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 10px solid transparent; /* Adjust as needed */
-  border-right: 10px solid transparent; /* Adjust as needed */
-  border-bottom: 15px solid rgba(48, 68, 214, 0.5); /* Adjust color and size as needed */
-  transition: border-bottom 0.3s ease; /* Smooth transition for shadow */
+  border-left: 10px solid transparent; 
+  border-right: 10px solid transparent; 
+  border-bottom: 15px solid rgba(19, 31, 128, 0.5);
+  transition: border-bottom 0.3s ease;  
 }
 
 nav button.triangle-shadow:hover::after {
-  border-bottom: 25px solid rgba(48, 68, 214, 0.5); /* Increase shadow on hover */
+  border-bottom: 25px solid rgba(19, 31, 128, 0.5); 
 }
 
 

@@ -18,12 +18,24 @@ const gamesBtn = document.getElementById('gamesBtn');
 // load home content by default
 contentDiv.appendChild(homeDiv)
 homeBtn.classList.add('triangle-shadow')
+// podcastsBtn.classList.add('triangle-shadow')
 
 homeBtn.addEventListener('click', () => {
     contentDiv.innerHTML = ''
     contentDiv.appendChild(homeDiv)
-//     contentDiv.appendChild(homeImage)
 })
 
-// homeBtn.classList.toggle('triangle-shadow')
+const buttons = document.querySelectorAll('.nav-button');
+
+buttons.forEach(button => {
+  if (!button.classList.contains('triangle-shadow')) {
+    button.addEventListener('mouseenter', () => {
+        button.classList.add('triangle-shadow');
+    });
+
+    button.addEventListener('mouseleave', () => {
+        button.classList.remove('triangle-shadow');
+    });
+  }
+});
 
