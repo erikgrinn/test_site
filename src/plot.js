@@ -1,108 +1,107 @@
-import Papa from 'papaparse';
-import Chart from 'chart.js/auto';
-// import data from './files/US_AQI_Lite.csv'
-const csvFilePath = './files/complete.csv';
+import Papa from "papaparse";
+import Chart from "chart.js/auto";
+import {
+  topojson,
+  ChoroplethController,
+  GeoFeature,
+  ColorScale,
+  ProjectionScale,
+} from "chartjs-chart-geo";
+import { getStateAbbreviation, getStateName } from "./stateConvert.js";
 
-async function createChart() {
-    let parsedData = []
+// Register the necessary components
+Chart.register(ChoroplethController, GeoFeature, ColorScale, ProjectionScale);
 
-    const response = await fetch(csvFilePath);
-    const csvData = await response.text();
-    // Parse the CSV data using PapaParse
-    Papa.parse(csvData, {
+// import data from './files/scrubbed.csv';
+const csvFilePath = "./files/scrubbed.csv";
+
+async function parseData() {
+  let parsedData = [];
+  const response = await fetch(csvFilePath);
+  const csvData = await response.text();
+  // Parse the CSV data using PapaParse
+  Papa.parse(csvData, {
     header: true, // Treat the first row as headers
     dynamicTyping: true, // Automatically convert numbers, booleans, etc.
     skipEmptyLines: true, // Ignore empty lines
-    complete: function(results) {
-        parsedData = results.data; // The parsed CSV data        
-        // You can now use `parsedData` for further processing
+    complete: function (results) {
+      parsedData = results.data; // The parsed CSV data
+      console.log(parsedData);
+      // Call the function to create the chart after parsing the data
+      createChart(parsedData);
     },
-    error: function(error) {
-        console.error('Error parsing CSV:', error);
-    }
-    });
-
-    // Group by state_id and calculate the average AQI
-    const averageAQIByState = parsedData.reduce((acc, row) => {
-        const state = row.state_id;
-        const aqi = row.AQI;
-
-        // Initialize the state if it doesn't exist in the accumulator
-        if (!acc[state]) {
-            acc[state] = { totalAQI: 0, count: 0 };
-        }
-
-        // Accumulate AQI values and count
-        acc[state].totalAQI += aqi;
-        acc[state].count += 1;
-
-        return acc;
-    }, {});
-
-
-    // Now calculate the average AQI for each state
-    const averageData = Object.keys(averageAQIByState).map(state => {
-        const { totalAQI, count } = averageAQIByState[state];
-        return {
-            state_id: state,
-            average_AQI: totalAQI / count  // Calculate average
-        };
-    });
-
-    // * below is another way/explanation to get the averageData that was done above
-    // // Create an array to hold the average AQI by state
-    // const averageData = [];
-
-    // // Loop through each state in the averageAQIByState object
-    // for (const state in averageAQIByState) {
-    //     const stateData = averageAQIByState[state];
-    //     const averageAQI = stateData.totalAQI / stateData.count; // Calculate the average AQI
-
-    //     // Add the result to the averageData array as a new object
-    //     averageData.push({
-    //         state_id: state,
-    //         average_AQI: averageAQI
-    //     });
-    // }
-
-    const ctx = document.getElementById('output').getContext('2d');
-    
-    const labels = averageData.map(item => item.state_id); // x-axis labels
-    const dataValues = averageData.map(item => item.average_AQI); // y-axis data
-
-    const chart = new Chart(ctx, {
-        type: 'bar', // Bar chart type
-        data: {
-            labels: labels, // x-axis labels
-            datasets: [{
-                label: 'Average AQI by State',
-                data: dataValues, // y-axis data
-                backgroundColor: 'rgb(29, 111, 58, 0.75)',
-                borderColor: 'rgb(29, 111, 58, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            // maintainAspectRatio: false,  // allows resizing without maintaining the original aspect ratio
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'State ID'
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Average AQI'
-                    }
-                }
-            }
-        }
-    });
+    error: function (error) {
+      console.error("Error parsing CSV:", error);
+    },
+  });
 }
 
+async function createChart(data) {
+  const us = await fetch(
+    "https://cdn.jsdelivr.net/npm/us-atlas/states-10m.json"
+  ).then((r) => r.json());
 
-export {createChart}
+  const states = topojson.feature(us, us.objects.states).features;
+  console.log(data)
+  const ctx = document.getElementById("output").getContext("2d");
+  new Chart(ctx, {
+    type: "choropleth",
+    data: {
+      labels: states.map((d) => d.properties.name),
+      datasets: [
+        {
+          label: "US Sightings",
+          // below uses filter to find total count
+          data: states.map((d) => {
+            const matchingRows = data.filter(
+              (row) => row.state && getStateName(row.state) === d.properties.name
+            );
+            const count = matchingRows.length;
+            console.log(count);
+            return {
+              feature: d,
+              value: count // Use the count of matching rows as the value
+        // below would be if a state had an individual value to display
+        //   data: states.map((d) => {
+        //     const stateData = data.find(
+        //       (row) => row.state === d.properties.name
+        //     );
+        //     return {
+        //       feature: d,
+        //       value: stateData ? stateData.value : 50, // Replace 'value' with the appropriate field from your CSV
+            };
+          }),
+        },
+      ],
+    },
+    options: {
+    //   showOutline: true,
+    //   showGraticule: true,
+      geo: {
+        projection: "albersUsa",
+      },
+        scales: {
+          color: {
+            type: "color",
+            axis: "x", 
+            domain: [0, 100],
+            range: ["white", "red"],
+          },
+        },
+        plugins: {
+            legend: {
+              display: false // Disable the legend
+            },
+            title: {
+                display: true,
+                text: 'US Sightings', // Set your chart title here
+                font: {
+                    size: 24
+                }
+              }
+          },
+    },
+  });
+}
+
+export { parseData };

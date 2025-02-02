@@ -7,6 +7,7 @@ import { podcastsDiv } from './podcasts.js';
 // import { documentariesDiv } from './documentaries.js';
 // import { moviesDiv } from './movies.js';
 // import { gamesDiv } from './games.js';
+import { parseData } from "./plot.js";
 
 const contentDiv = document.getElementById('content')
 
@@ -70,3 +71,4 @@ buttons.forEach(button => {
     });
   });
 
+parseData();

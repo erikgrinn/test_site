@@ -16,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^4.4.7",
+    "chartjs-chart-geo": "^4.3.4",
     "papaparse": "^5.5.2",
     "webpack": "^5.97.1"
   },
