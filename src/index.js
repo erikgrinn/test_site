@@ -32,33 +32,41 @@ const divMapping = {
 
 // load home content by default
 contentDiv.appendChild(homeDiv)
+homeBtn.classList.add('active', 'triangle-shadow')
 
 const buttons = document.querySelectorAll('.nav-button');
 
 buttons.forEach(button => {
-  if (!button.classList.contains('triangle-shadow')) {
     button.addEventListener('mouseenter', () => {
+      if (!button.classList.contains('active')) {
         button.classList.add('triangle-shadow');
+      }
     });
+  
     button.addEventListener('mouseleave', () => {
+      if (!button.classList.contains('active')) {
         button.classList.remove('triangle-shadow');
+      }
     });
-  }
+  
     button.addEventListener('click', () => {
-        buttons.forEach(button => {
-            if (button.classList.contains('triangle-shadow')) {
-              button.classList.remove('triangle-shadow')
-            }
-          })
-        let buttonId = button.getAttribute('id')
-        const catBtn = divMapping[buttonId][0]
-        console.log(catBtn)
-        catBtn.classList.add('triangle-shadow')
-        const catDiv = divMapping[buttonId][1];
-        if (catDiv) {
-          contentDiv.innerHTML = '';
-          contentDiv.appendChild(catDiv);
-        }
-    })
-});
+      // Remove 'active' and 'triangle-shadow' class from all buttons
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.remove('triangle-shadow');
+      });
+  
+      // Add 'active' and 'triangle-shadow' class to the clicked button
+      button.classList.add('active');
+      button.classList.add('triangle-shadow');
+  
+      // Get the corresponding div element from the mapping
+      let buttonId = button.getAttribute('id');
+      const catDiv = divMapping[buttonId][1];
+      if (catDiv) {
+        contentDiv.innerHTML = '';
+        contentDiv.appendChild(catDiv);
+      }
+    });
+  });
 
