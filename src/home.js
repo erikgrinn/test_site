@@ -1,4 +1,6 @@
-const homeDiv = document.createElement('div')
+import { parseData } from "./plot.js";
+const homeDiv = document.createElement("div");
+
 homeDiv.innerHTML = `
 Welcome to the Non-human Intelligence (NHI) Guidebook.
         <br>
@@ -17,8 +19,33 @@ Welcome to the Non-human Intelligence (NHI) Guidebook.
             <li><strong>Movies:</strong> Fictional films that might not be so fictional after all.</li>
             <li><strong>Games:</strong> Games that spark your imagination.</li>
         </ul>
-        `
+        `;
 
-export {homeDiv}
+function initializeHomeChart() {
+  // Remove existing canvas if it exists
+  const existingCanvas = document.getElementById("output");
+  if (existingCanvas) {
+    existingCanvas.remove();
+  }
 
+  // Create a new canvas element
+  const canvasDiv = document.createElement("canvas");
+  canvasDiv.setAttribute("id", "output");
+  homeDiv.appendChild(canvasDiv);
 
+  // Check if the subtitle element already exists
+  let subDiv = document.getElementById("subtitle");
+  if (!subDiv) {
+    subDiv = document.createElement("div");
+    subDiv.setAttribute("id", "subtitle");
+  }
+
+  subDiv.innerHTML = `
+    Source: This dataset was scraped, geolocated, and time standardized from NUFORC data by Sigmond Axel <a href="https://github.com/planetsig/ufo-reports" target="_blank">here</a>
+    `;
+  homeDiv.appendChild(subDiv);
+
+  parseData();
+}
+
+export { homeDiv, initializeHomeChart };

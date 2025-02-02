@@ -12,15 +12,7 @@ import { getStateAbbreviation, getStateName } from "./stateConvert.js";
 // Register the necessary components
 Chart.register(ChoroplethController, GeoFeature, ColorScale, ProjectionScale);
 
-// add canvas and subtitle inside content for chart
-const contentDiv = document.getElementById('content')
-const canvasDiv = document.createElement('canvas')
-canvasDiv.setAttribute('id', 'output')
-contentDiv.appendChild(canvasDiv)
-const subDiv = document.createElement('div')
-subDiv.setAttribute('id', 'subtitle')
-contentDiv.appendChild(subDiv)
-
+let chartInstance; // Variable to hold the chart instance
 
 // import data from './files/scrubbed.csv';
 const csvFilePath = "./files/scrubbed.csv";
@@ -52,7 +44,8 @@ async function createChart(data) {
 
   const states = topojson.feature(us, us.objects.states).features;
   const ctx = document.getElementById("output").getContext("2d");
-  new Chart(ctx, {
+
+  chartInstance = new Chart(ctx, {
     type: "choropleth",
     data: {
       labels: states.map((d) => d.properties.name),
@@ -122,11 +115,6 @@ async function createChart(data) {
       },
     },
   });
-  
-  subDiv.innerHTML = `
-    Source: This dataset was scraped, geolocated, and time standardized from NUFORC data by Sigmond Axel <a href="https://github.com/planetsig/ufo-reports" target="_blank">here</a>
-    `
 }
-
 
 export { parseData };

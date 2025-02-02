@@ -1,5 +1,5 @@
 import "./styles.css";
-import { homeDiv} from "./home.js";
+import { homeDiv, initializeHomeChart} from "./home.js";
 import { podcastsDiv } from './podcasts.js';
 // import { hearingsDiv } from './hearings.js';
 // import { encountersDiv } from './encounters.js';
@@ -7,7 +7,6 @@ import { podcastsDiv } from './podcasts.js';
 // import { documentariesDiv } from './documentaries.js';
 // import { moviesDiv } from './movies.js';
 // import { gamesDiv } from './games.js';
-import { parseData } from "./plot.js";
 
 const contentDiv = document.getElementById('content')
 
@@ -32,7 +31,8 @@ const divMapping = {
   };
 
 // load home content by default
-contentDiv.prepend(homeDiv) //place before canvas, don't know why it's not called prependChild
+contentDiv.appendChild(homeDiv)
+initializeHomeChart();
 homeBtn.classList.add('active', 'triangle-shadow')
 
 const buttons = document.querySelectorAll('.nav-button');
@@ -67,8 +67,9 @@ buttons.forEach(button => {
       if (catDiv) {
         contentDiv.innerHTML = '';
         contentDiv.appendChild(catDiv);
+        if (buttonId ==='homeBtn') {
+            initializeHomeChart();
+        }
       }
     });
   });
-
-parseData();
