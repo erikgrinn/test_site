@@ -1,19 +1,25 @@
 import "./styles.css";
 import { homeDiv} from "./home.js";
-// import { menuDiv } from "./menu.js"
-// import { aboutDiv } from "./about.js";
-
+// import { podcastsDiv } from './podcasts.js';
+// import { hearingsDiv } from './hearings.js';
+// import { encountersDiv } from './encounters.js';
+// import { booksDiv } from './books.js';
+// import { documentariesDiv } from './documentaries.js';
+// import { moviesDiv } from './movies.js';
+// import { gamesDiv } from './games.js';
 
 const contentDiv = document.getElementById('content')
 
-const homeBtn = document.getElementById('homeBtn');
-const podcastsBtn = document.getElementById('podcastsBtn');
-const hearingsBtn = document.getElementById('hearingsBtn');
-const encountersBtn = document.getElementById('encountersBtn');
-const booksBtn = document.getElementById('booksBtn');
-const documentariesBtn = document.getElementById('documentariesBtn');
-const moviesBtn = document.getElementById('moviesBtn');
-const gamesBtn = document.getElementById('gamesBtn');
+const divMapping = {
+    homeBtn: homeDiv,
+    // podcastsBtn: podcastsDiv,
+    // hearingsBtn: hearingsDiv,
+    // encountersBtn: encountersDiv,
+    // booksBtn: booksDiv,
+    // documentariesBtn: documentariesDiv,
+    // moviesBtn: moviesDiv,
+    // gamesBtn: gamesDiv,
+  };
 
 // load home content by default
 contentDiv.appendChild(homeDiv)
@@ -29,12 +35,13 @@ buttons.forEach(button => {
     button.addEventListener('mouseleave', () => {
         button.classList.remove('triangle-shadow');
     });
-    // add attribute of string of button name + 'Div' ?
     button.addEventListener('click', () => {
         let buttonId = button.getAttribute('id')
-        let divName = buttonId.slice(0, -3) + 'Div'
-        contentDiv.innerHTML = ''
-        contentDiv.appendChild(divName)
+        const divElement = divMapping[buttonId];
+        if (divElement) {
+          contentDiv.innerHTML = '';
+          contentDiv.appendChild(divElement);
+        }
     })
   }
 });
