@@ -12,6 +12,16 @@ import { getStateAbbreviation, getStateName } from "./stateConvert.js";
 // Register the necessary components
 Chart.register(ChoroplethController, GeoFeature, ColorScale, ProjectionScale);
 
+// add canvas and subtitle inside content for chart.js
+const contentDiv = document.getElementById('content')
+const canvasDiv = document.createElement('canvas')
+canvasDiv.setAttribute('id', 'output')
+contentDiv.appendChild(canvasDiv)
+const subDiv = document.createElement('div')
+subDiv.setAttribute('id', 'subtitle')
+contentDiv.appendChild(subDiv)
+
+
 // import data from './files/scrubbed.csv';
 const csvFilePath = "./files/scrubbed.csv";
 
@@ -42,7 +52,6 @@ async function createChart(data) {
   ).then((r) => r.json());
 
   const states = topojson.feature(us, us.objects.states).features;
-  console.log(data)
   const ctx = document.getElementById("output").getContext("2d");
   new Chart(ctx, {
     type: "choropleth",
@@ -54,54 +63,69 @@ async function createChart(data) {
           // below uses filter to find total count
           data: states.map((d) => {
             const matchingRows = data.filter(
-              (row) => row.state && getStateName(row.state) === d.properties.name
+              (row) =>
+                row.state && getStateName(row.state) === d.properties.name
             );
             const count = matchingRows.length;
             console.log(count);
             return {
               feature: d,
-              value: count // Use the count of matching rows as the value
-        // below would be if a state had an individual value to display
-        //   data: states.map((d) => {
-        //     const stateData = data.find(
-        //       (row) => row.state === d.properties.name
-        //     );
-        //     return {
-        //       feature: d,
-        //       value: stateData ? stateData.value : 50, // Replace 'value' with the appropriate field from your CSV
+              value: count, // Use the count of matching rows as the value
+              // below would be if a state had an individual value to display
+              //   data: states.map((d) => {
+              //     const stateData = data.find(
+              //       (row) => row.state === d.properties.name
+              //     );
+              //     return {
+              //       feature: d,
+              //       value: stateData ? stateData.value : 50, // Replace 'value' with the appropriate field from your CSV
             };
           }),
         },
       ],
     },
     options: {
-    //   showOutline: true,
-    //   showGraticule: true,
+      //   showOutline: true,
+      //   showGraticule: true,
       geo: {
         projection: "albersUsa",
       },
-        scales: {
-          color: {
-            type: "color",
-            axis: "x", 
-            domain: [0, 100],
-            range: ["white", "red"],
+      scales: {
+        color: {
+          type: "color",
+          axis: "x",
+          domain: [0, 100],
+          range: ["white", "red"],
+        },
+      },
+      plugins: {
+        legend: {
+          display: false, // Disable the legend
+        },
+        title: {
+          display: true,
+          text: "US Sightings", // Set your chart title here
+          font: {
+            size: 24,
           },
         },
-        plugins: {
-            legend: {
-              display: false // Disable the legend
-            },
-            title: {
-                display: true,
-                text: 'US Sightings', // Set your chart title here
-                font: {
-                    size: 24
-                }
-              }
-          },
+        // subtitle: {
+        //   display: true,
+        //   text: "Source: Your Data Source Here",
+        //   font: {
+        //     size: 14,
+        //     style: "italic",
+        //   },
+        //   padding: {
+        //     top: 10,
+        //   },
+        // },
+      },
     },
   });
+//   const subtitleDiv = document.getElementById('chart-subtitle')
+//   subtitleDiv.innerHTML = ``
 }
+
 
 export { parseData };

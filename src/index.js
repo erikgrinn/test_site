@@ -32,7 +32,7 @@ const divMapping = {
   };
 
 // load home content by default
-contentDiv.appendChild(homeDiv)
+contentDiv.prepend(homeDiv) //place before canvas, don't know why it's not called prependChild
 homeBtn.classList.add('active', 'triangle-shadow')
 
 const buttons = document.querySelectorAll('.nav-button');
