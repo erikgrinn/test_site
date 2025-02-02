@@ -1,3 +1,14 @@
+// const homeBtn = document.getElementById('homeBtn')
+// const buttons = document.querySelectorAll('.nav-button');
+
+// buttons.forEach(button => {
+//   if (button.classList.contains('triangle-shadow')) {
+//     button.classList.remove('triangle-shadow')
+//   }
+// })
+
+// homeBtn.classList.add('triangle-shadow')
+
 const homeDiv = document.createElement('div')
 homeDiv.innerHTML = `
 Welcome to the Non-human Intelligence (NHI) Guidebook.

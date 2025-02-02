@@ -10,21 +10,28 @@ import { podcastsDiv } from './podcasts.js';
 
 const contentDiv = document.getElementById('content')
 
+const homeBtn = document.getElementById('homeBtn');
+const podcastsBtn = document.getElementById('podcastsBtn')
+const hearingsBtn = document.getElementById('hearingsBtn');
+const encountersBtn = document.getElementById('encountersBtn');
+const booksBtn = document.getElementById('booksBtn');
+const documentariesBtn = document.getElementById('documentariesBtn');
+const moviesBtn = document.getElementById('moviesBtn');
+const gamesBtn = document.getElementById('gamesBtn');
+
 const divMapping = {
-    homeBtn: homeDiv,
-    podcastsBtn: podcastsDiv,
-    // hearingsBtn: hearingsDiv,
-    // encountersBtn: encountersDiv,
-    // booksBtn: booksDiv,
-    // documentariesBtn: documentariesDiv,
-    // moviesBtn: moviesDiv,
-    // gamesBtn: gamesDiv,
+    'homeBtn': [homeBtn, homeDiv],
+    'podcastsBtn': [podcastsBtn, podcastsDiv],
+    // 'hearingsBtn': [hearingsBtn, hearingsDiv],
+    // 'encountersBtn': [encountersBtn, encountersDiv],
+    // 'booksBtn': [booksBtn, booksDiv],
+    // 'documentariesBtn': [documentariesBtn, documentariesDiv],
+    // 'moviesBtn': [moviesBtn, moviesDiv],
+    // 'gamesBtn': [gamesBtn, gamesDiv]
   };
 
 // load home content by default
-const homeBtn = document.getElementById('homeBtn')
 contentDiv.appendChild(homeDiv)
-homeBtn.classList.add('triangle-shadow')
 
 const buttons = document.querySelectorAll('.nav-button');
 
@@ -38,11 +45,19 @@ buttons.forEach(button => {
     });
   }
     button.addEventListener('click', () => {
+        buttons.forEach(button => {
+            if (button.classList.contains('triangle-shadow')) {
+              button.classList.remove('triangle-shadow')
+            }
+          })
         let buttonId = button.getAttribute('id')
-        const divElement = divMapping[buttonId];
-        if (divElement) {
+        const catBtn = divMapping[buttonId][0]
+        console.log(catBtn)
+        catBtn.classList.add('triangle-shadow')
+        const catDiv = divMapping[buttonId][1];
+        if (catDiv) {
           contentDiv.innerHTML = '';
-          contentDiv.appendChild(divElement);
+          contentDiv.appendChild(catDiv);
         }
     })
 });
