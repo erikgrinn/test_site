@@ -1,6 +1,6 @@
 import "./styles.css";
 import { homeDiv} from "./home.js";
-// import { podcastsDiv } from './podcasts.js';
+import { podcastsDiv } from './podcasts.js';
 // import { hearingsDiv } from './hearings.js';
 // import { encountersDiv } from './encounters.js';
 // import { booksDiv } from './books.js';
@@ -12,7 +12,7 @@ const contentDiv = document.getElementById('content')
 
 const divMapping = {
     homeBtn: homeDiv,
-    // podcastsBtn: podcastsDiv,
+    podcastsBtn: podcastsDiv,
     // hearingsBtn: hearingsDiv,
     // encountersBtn: encountersDiv,
     // booksBtn: booksDiv,
@@ -22,6 +22,7 @@ const divMapping = {
   };
 
 // load home content by default
+const homeBtn = document.getElementById('homeBtn')
 contentDiv.appendChild(homeDiv)
 homeBtn.classList.add('triangle-shadow')
 
@@ -35,6 +36,7 @@ buttons.forEach(button => {
     button.addEventListener('mouseleave', () => {
         button.classList.remove('triangle-shadow');
     });
+  }
     button.addEventListener('click', () => {
         let buttonId = button.getAttribute('id')
         const divElement = divMapping[buttonId];
@@ -43,6 +45,5 @@ buttons.forEach(button => {
           contentDiv.appendChild(divElement);
         }
     })
-  }
 });
 
