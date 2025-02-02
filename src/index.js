@@ -18,12 +18,6 @@ const gamesBtn = document.getElementById('gamesBtn');
 // load home content by default
 contentDiv.appendChild(homeDiv)
 homeBtn.classList.add('triangle-shadow')
-// podcastsBtn.classList.add('triangle-shadow')
-
-homeBtn.addEventListener('click', () => {
-    contentDiv.innerHTML = ''
-    contentDiv.appendChild(homeDiv)
-})
 
 const buttons = document.querySelectorAll('.nav-button');
 
@@ -32,10 +26,16 @@ buttons.forEach(button => {
     button.addEventListener('mouseenter', () => {
         button.classList.add('triangle-shadow');
     });
-
     button.addEventListener('mouseleave', () => {
         button.classList.remove('triangle-shadow');
     });
+    // add attribute of string of button name + 'Div' ?
+    button.addEventListener('click', () => {
+        let buttonId = button.getAttribute('id')
+        let divName = buttonId.slice(0, -3) + 'Div'
+        contentDiv.innerHTML = ''
+        contentDiv.appendChild(divName)
+    })
   }
 });
 
