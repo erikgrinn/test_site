@@ -1,0 +1,90 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --main-color: #CD5C08;
+  --secondary-color: #FFF5E4;
+  --tertiary-color: #333333;
+  --shadow: rgba(0, 0, 0, 0.25);
+  --mild-shadow: 0 5px 10px var(--shadow);
+  --bottom-white-shadow: 0 10px 10px rgba(255, 255, 255, 0.75);
+  --strong-shadow: rgba(0, 0, 0, 0.75);
+}
+
+body {
+    height: 100vh;
+    width: auto;
+    background-color: var(--strong-shadow);
+    /* background-image: linear-gradient(to right, #686868, var(--tertiary-color)); */
+    /* background-repeat: round repeat; */
+    margin: 0 auto;
+    font-family: "Raleway", sans-serif; 
+    color: rgb(207, 207, 207);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+header {
+  width: 100%;
+  padding-left: 15%;
+  background-color: var(--main-color);
+  /* box-shadow: var(--mild-shadow); */
+}
+
+nav {
+  text-align:center;
+  display:flex;
+}
+
+/* nav button {
+    background-color: var(--main-color);
+} */
+
+
+#content {
+  margin-top: 24px;
+  width: 85%;
+  /* display: flex; */
+  gap: 24px;
+}
+
+img {
+  height: 80%;
+  width: 60%;
+  border-radius: 20%;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {font-family: "Cinzel", serif;} 
+
+.gallery { 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.gallery img {
+  height: 25%;
+  width: 30%;
+}
+
+.footer {
+  padding-bottom: 12px;
+}
+
+@keyframes App-logo {}
+
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}
