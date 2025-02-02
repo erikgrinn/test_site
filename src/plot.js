@@ -12,7 +12,7 @@ import { getStateAbbreviation, getStateName } from "./stateConvert.js";
 // Register the necessary components
 Chart.register(ChoroplethController, GeoFeature, ColorScale, ProjectionScale);
 
-// add canvas and subtitle inside content for chart.js
+// add canvas and subtitle inside content for chart
 const contentDiv = document.getElementById('content')
 const canvasDiv = document.createElement('canvas')
 canvasDiv.setAttribute('id', 'output')
@@ -36,7 +36,6 @@ async function parseData() {
     skipEmptyLines: true, // Ignore empty lines
     complete: function (results) {
       parsedData = results.data; // The parsed CSV data
-      console.log(parsedData);
       // Call the function to create the chart after parsing the data
       createChart(parsedData);
     },
@@ -123,8 +122,10 @@ async function createChart(data) {
       },
     },
   });
-//   const subtitleDiv = document.getElementById('chart-subtitle')
-//   subtitleDiv.innerHTML = ``
+  
+  subDiv.innerHTML = `
+    Source: This dataset was scraped, geolocated, and time standardized from NUFORC data by Sigmond Axel <a href="https://github.com/planetsig/ufo-reports" target="_blank">here</a>
+    `
 }
 
 
