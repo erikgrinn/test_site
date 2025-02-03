@@ -5,13 +5,13 @@ podcastsDiv.innerHTML = `
             <div class="podcast">
                 <div class="podcast-title">Jesse Michels</div>
                 <div class="podcast-content">
-                <img src='./files/images/jesse-michels.jpeg'>
+                <img src='./files/images/podcast-icons/jesse-michels.jpeg'>
                     The Jesse Michels Podcast is a thought-provoking show that explores unconventional ideas, emerging technologies, and deep dives into history, science, and culture. 
                 </div>
                 <div class="icons">
-                    <a href="https://github.com/erikgrinn/odin-calculator" target="_blank" rel="noopener noreferrer"><img src="./icons/star-plus-outline.svg" heigh="25px" width="25px"></a>
-                    <a href="https://erikgrinn.github.io/odin-calculator/" target="_blank" rel="noopener noreferrer"><img src="./icons/eye-plus-outline.svg" heigh="25px" width="25px"></a>
-                    <a href="https://github.com/erikgrinn" target="_blank" rel="noopener noreferrer"><img src="./icons/share-variant-outline.svg" heigh="25px" width="25px"></a>
+                    <a href="https://www.youtube.com/Jessemichels" target="_blank" rel="noopener noreferrer"><img src="./files/images/icons/youtube.svg" heigh="25px" width="25px"></a>
+                    <a href="https://open.spotify.com/show/1WqA0m5xTcp4n6qmCQfS2K" target="_blank" rel="noopener noreferrer"><img src="./files/images/icons/spotify.svg" heigh="25px" width="25px"></a>
+                    <a href="https://podcasts.apple.com/my/podcast/american-alchemy/id1771917740" target="_blank" rel="noopener noreferrer"><img src="./files/images/icons/apple.svg" heigh="25px" width="25px"></a>
                 </div>
             </div>
             <div class="podcast">
