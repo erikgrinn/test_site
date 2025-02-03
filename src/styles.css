@@ -92,22 +92,14 @@ footer {
   padding-bottom: 12px;
 }
 
-/* main {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  grid-auto-rows: minmax(100px, auto); 
-  gap: 16px; 
-  padding: 16px; 
-} */
-
-.projects-header {
+.podcasts-header {
   font-size: 24px;
   align-content: end;
   grid-column: 1 / span 2; /* Span both columns */
   margin-bottom: 8px;
 }
 
-.projects {
+.podcasts {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two columns within the projects section */
   grid-auto-rows: minmax(100px, auto); /* Variable number of rows with minimum height of 100px */
@@ -115,7 +107,7 @@ footer {
   padding-bottom: 24px;
 }
 
-.project {
+.podcast {
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -127,17 +119,29 @@ footer {
   transition: .3s;
 }
 
-.project:hover {
+.podcast:hover {
   border-left-width: 11px;
 }
 
-.project-title {
+.podcast-title {
   font-weight: bold;
   margin-bottom: 8px;
 }
 
-.project .icons {
+.podcast-content {
   display: flex;
+  align-items: center;
+}
+
+.podcast-content img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.podcast .icons {
+  display: flex;
+  padding-top: 4px;
   margin-top: auto;
   align-content: end;
   justify-content: right;
