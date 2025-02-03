@@ -4,7 +4,7 @@ podcastsDiv.innerHTML = `
         <div class="projects">
             <div class="project">
                 <div class="project-title">Calculator</div>
-                <div class="content">
+                <div class="project-content">
                     Are you tired of doing every single calculation by hand?
                     Does your abacus display signs of extended wear and tear?
                     This calculator app is here to solve all of your calculation woes. 
@@ -18,7 +18,7 @@ podcastsDiv.innerHTML = `
             </div>
             <div class="project">
                 <div class="project-title">Calculator-2</div>
-                <div class="content">
+                <div class="project-content">
                     Are you tired of doing every single calculation by hand?
                     Does your abacus display signs of extended wear and tear?
                     This calculator app is here to solve all of your calculation woes. 
@@ -32,7 +32,7 @@ podcastsDiv.innerHTML = `
             </div>
             <div class="project">
                 <div class="project-title">Calculator-3</div>
-                <div class="content">
+                <div class="project-content">
                     Are you tired of doing every single calculation by hand?
                     Does your abacus display signs of extended wear and tear?
                     This calculator app is here to solve all of your calculation woes. 
