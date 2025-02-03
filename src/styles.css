@@ -120,7 +120,7 @@ footer {
 }
 
 .podcast:hover {
-  border-left-width: 11px;
+  border-left-width: 10px;
 }
 
 .podcast-title {
@@ -137,6 +137,7 @@ footer {
   height: 100px;
   width: 100px;
   border-radius: 50%;
+  padding-right: 2px; /*should probably instead have flex of img and text*/
 }
 
 .podcast .icons {

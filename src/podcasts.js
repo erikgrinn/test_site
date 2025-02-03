@@ -7,8 +7,6 @@ podcastsDiv.innerHTML = `
                 <div class="podcast-content">
                 <img src='./files/images/jesse-michels.jpeg'>
                     The Jesse Michels Podcast is a thought-provoking show that explores unconventional ideas, emerging technologies, and deep dives into history, science, and culture. 
-                    Hosted by Jesse Michels, the podcast features in-depth interviews with experts, entrepreneurs, and intellectuals, often covering topics like AI, biotech, geopolitics, 
-                    and hidden narratives. 
                 </div>
                 <div class="icons">
                     <a href="https://github.com/erikgrinn/odin-calculator" target="_blank" rel="noopener noreferrer"><img src="./icons/star-plus-outline.svg" heigh="25px" width="25px"></a>
