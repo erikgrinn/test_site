@@ -2,11 +2,12 @@ import { parseData } from "./plot.js";
 const homeDiv = document.createElement("div");
 
 homeDiv.innerHTML = `
-Welcome to the Non-human Intelligence (NHI) Guidebook.
+Welcome to REDACTED.
         <br>
         <br>
-        This is a hobby project in response to the overwhelming amount of evidence and content available online.
-        As I find myself keeping up with recent major developments and disclosures, I realized that a "guidebook", a way to navigate the massive landscape of discussions surrounding the topic, could be of great use for me and for others.
+        This is a hobby project in response to the overwhelming amount of evidence and content available online relating to Non-human Intelligence (NHI). 
+        However, information here can span beyond that topic, such as touching on ancient technologies.
+        As I find myself keeping up with recent major developments and disclosures, I realized that a "guidebook", a way to navigate the massive landscape of discussions, could be of great use for me and for others.
         <br>
         <br>
         My aim is to provide an all-encompassing approach of listing content across the different media types:

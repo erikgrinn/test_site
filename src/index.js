@@ -1,3 +1,5 @@
+// note: switching quickly from podcasts to home back to podcasts results in getContext error (processing time)
+
 import "./styles.css";
 import { homeDiv, initializeHomeChart} from "./home.js";
 import { podcastsDiv } from './podcasts.js';
