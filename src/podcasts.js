@@ -90,6 +90,8 @@ class Podcast {
 //         </div>
 // `;
 
+
+// podcast-icons are probably too heavy / too many KB
 const podcast1 = new Podcast(
   "Julian Dorey",
   "./files/images/podcast-icons/julian-dorey.jpg",
@@ -115,7 +117,7 @@ const podcast2 = new Podcast(
 const podcast3 = new Podcast(
     "Joe Rogan",
     "./files/images/podcast-icons/joe-rogan.jpg",
-    "The Joe Rogan Experience is a long-form podcast where Joe Rogan interviews a wide range of guests, including comedians, scientists, athletes, and public figures, discussing topics like culture, science, politics, and personal experiences in an open and unfiltered format.",
+    "Joe Rogan interviews a wide range of guests, discussing topics like culture, science, politics, and personal experiences in an open and unfiltered format.",
     [
       "https://www.youtube.com/@joerogan",
       "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
