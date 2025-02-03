@@ -2,7 +2,7 @@ import { parseData } from "./plot.js";
 const homeDiv = document.createElement("div");
 
 homeDiv.innerHTML = `
-Welcome to REDACTED.
+<span style=font-size:24px><b>Welcome to REDACTED</b></span>
         <br>
         <br>
         This is a hobby project in response to the overwhelming amount of evidence and content available online relating to Non-human Intelligence (NHI). 

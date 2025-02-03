@@ -1,7 +1,7 @@
 const podcastsDiv = document.createElement('div')
 podcastsDiv.innerHTML = `
         <div class="main">
-            <div id="title" class="projects-header"><b>Podcasts</b></div>
+            <div class="projects-header"><b>Podcasts</b></div>
             <div class="projects">
                 <div class="project">
                     <div class="project-title">Calculator</div>

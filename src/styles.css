@@ -100,14 +100,11 @@ main {
   padding: 16px; /* Padding around the grid */
 }
 
-#title {
-  font-size: 24px;
-  grid-column: 1 / span 2; /* Span both columns */
-}
-
 .projects-header {
+  font-size: 24px;
   align-content: end;
   grid-column: 1 / span 2; /* Span both columns */
+  margin-bottom: 8px;
 }
 
 .projects {
