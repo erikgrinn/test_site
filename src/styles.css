@@ -92,13 +92,13 @@ footer {
   padding-bottom: 12px;
 }
 
-main {
+/* main {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns with equal width */
-  grid-auto-rows: minmax(100px, auto); /* Variable number of rows with minimum height of 100px */
-  gap: 16px; /* Gap between grid items */
-  padding: 16px; /* Padding around the grid */
-}
+  grid-template-columns: 1fr 1fr; 
+  grid-auto-rows: minmax(100px, auto); 
+  gap: 16px; 
+  padding: 16px; 
+} */
 
 .projects-header {
   font-size: 24px;
