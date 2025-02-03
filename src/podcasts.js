@@ -53,6 +53,7 @@ class Podcast {
         const linkElement = document.createElement('a');
         linkElement.setAttribute('href', link);
         linkElement.setAttribute('target', '_blank');
+        linkElement.setAttribute('rel', 'noopener noreferrer')
     
         // Set different innerHTML based on the index
         if (index === 0) {
