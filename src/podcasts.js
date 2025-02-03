@@ -91,13 +91,13 @@ class Podcast {
 // `;
 
 const podcast1 = new Podcast(
-  "Jesse Michels",
-  "./files/images/podcast-icons/jesse-michels.jpeg",
-  "The Jesse Michels Podcast is a thought-provoking show that explores unconventional ideas, emerging technologies, and deep dives into history, science, and culture.",
+  "Julian Dorey",
+  "./files/images/podcast-icons/julian-dorey.jpg",
+  "Julian Dorey's long-form podcast features many important figures discussing topics that make you wonder how you didn't know them before.",
   [
-    "https://www.youtube.com/Jessemichels",
-    "https://open.spotify.com/show/1WqA0m5xTcp4n6qmCQfS2K",
-    "https://podcasts.apple.com/my/podcast/american-alchemy/id1771917740",
+    "https://www.youtube.com/@JulianDorey",
+    "https://open.spotify.com/show/5skaSpDzq94Kh16so3c0uz",
+    "https://podcasts.apple.com/us/podcast/julian-dorey-podcast/id1531416289",
   ]
 );
 
@@ -106,20 +106,20 @@ const podcast2 = new Podcast(
   "./files/images/podcast-icons/jesse-michels.jpeg",
   "The Jesse Michels Podcast is a thought-provoking show that explores unconventional ideas, emerging technologies, and deep dives into history, science, and culture.",
   [
-    "https://www.youtube.com/Jessemichels",
+    "https://www.youtube.com/@Jessemichels",
     "https://open.spotify.com/show/1WqA0m5xTcp4n6qmCQfS2K",
-    "https://podcasts.apple.com/my/podcast/american-alchemy/id1771917740",
+    "https://podcasts.apple.com/us/podcast/american-alchemy/id1771917740",
   ]
 );
 
 const podcast3 = new Podcast(
-    "Jesse Michels",
-    "./files/images/podcast-icons/jesse-michels.jpeg",
-    "The Jesse Michels Podcast is a thought-provoking show that explores unconventional ideas, emerging technologies, and deep dives into history, science, and culture.",
+    "Joe Rogan",
+    "./files/images/podcast-icons/joe-rogan.jpg",
+    "The Joe Rogan Experience is a long-form podcast where Joe Rogan interviews a wide range of guests, including comedians, scientists, athletes, and public figures, discussing topics like culture, science, politics, and personal experiences in an open and unfiltered format.",
     [
-      "https://www.youtube.com/Jessemichels",
-      "https://open.spotify.com/show/1WqA0m5xTcp4n6qmCQfS2K",
-      "https://podcasts.apple.com/my/podcast/american-alchemy/id1771917740",
+      "https://www.youtube.com/@joerogan",
+      "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+      "https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272",
     ]
   );
 

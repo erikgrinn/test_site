@@ -106,7 +106,7 @@ footer {
 }
 
 .podcast {
-  padding: 12px;
+  padding: 10px 4px 10px 10px;
   display: flex;
   flex-direction: column;
   /* background-color: black; */
@@ -129,7 +129,7 @@ footer {
 .podcast-content {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .podcast-content img {
