@@ -15,12 +15,12 @@
 body {
     height: 100vh;
     width: auto;
-    /* background-color: var(--strong-shadow); */
+    background-color: var(--strong-shadow);
     /* background-image: linear-gradient(to right, #686868, var(--tertiary-color)); */
     margin: 0 auto;
     font-family: "Raleway", sans-serif; 
-    /* color: rgb(207, 207, 207); */
-    color: black;
+    color: rgb(207, 207, 207);
+    /* color: black; */
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -86,8 +86,9 @@ nav button.triangle-shadow:hover::after {
 
 h1, h2, h3, h4, h5, h6 {font-family: "Cinzel", serif;} 
 
-.footer {
+footer {
   text-align: center;
+  padding-top: 12px;
   padding-bottom: 12px;
 }
 
