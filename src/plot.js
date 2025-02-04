@@ -52,17 +52,16 @@ async function createChart(data) {
       datasets: [
         {
           label: "US Sightings",
-          // below uses filter to find total count
+          // below uses filter to find total count - takes some time
           data: states.map((d) => {
             const matchingRows = data.filter(
               (row) =>
                 row.state && getStateName(row.state) === d.properties.name
             );
             const count = matchingRows.length;
-            console.log(count);
             return {
               feature: d,
-              value: count, // Use the count of matching rows as the value
+              value: count
               // below would be if a state had an individual value to display
               //   data: states.map((d) => {
               //     const stateData = data.find(

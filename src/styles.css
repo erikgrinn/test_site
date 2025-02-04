@@ -15,12 +15,11 @@
 body {
     height: 100vh;
     width: auto;
-    /* background-color: var(--strong-shadow); */
+    background-color: var(--strong-shadow);
     /* background-image: linear-gradient(to right, #686868, var(--tertiary-color)); */
     margin: 0 auto;
     font-family: "Raleway", sans-serif; 
-    /* color: rgb(207, 207, 207); */
-    /* color: black; */
+    color: rgb(207, 207, 207);
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -106,10 +105,10 @@ footer {
 }
 
 .podcast {
-  padding: 10px 4px 10px 10px;
+  padding: 10px 2px 10px 10px;
   display: flex;
   flex-direction: column;
-  /* background-color: black; */
+  background-color: rgb(72, 57, 57);
   /* color: black; */
   border-left: 8px solid var(--main-color);
   border-radius: 8px;
@@ -129,15 +128,15 @@ footer {
 .podcast-content {
   display: flex;
   align-items: center;
-  /* justify-content: space-evenly; */
+  /* justify-content: space-between; */
 }
 
 .podcast-content img {
   height: 100px;
   width: 100px;
-  border-radius: 25%;
+  border-radius: 50%;
   /* should probably instead have flex of img and text */
-  padding-right: 6px; 
+  padding-right: 10px; 
 }
 
 .podcast-links {
