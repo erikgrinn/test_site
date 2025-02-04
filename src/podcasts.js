@@ -8,7 +8,7 @@ podcastsDiv.appendChild(podcastsHeader);
 
 const podcasts = document.createElement("div");
 podcasts.setAttribute("class", "podcasts");
-podcastsDiv.appendChild(podcasts)
+podcastsDiv.appendChild(podcasts);
 
 class Podcast {
   constructor(title, podcastIcon, description, links) {
@@ -31,40 +31,40 @@ class Podcast {
     const podcastContent = document.createElement("div");
     podcastContent.setAttribute("class", "podcast-content");
 
-        // create and append image to podcast-content container
-        const podcastIconImg = document.createElement("img");
-        podcastIconImg.setAttribute("src", this.podcastIcon);
-        podcastIconImg.setAttribute("alt", `${this.host} icon`);
-        podcastContent.appendChild(podcastIconImg);
+    // content-1: create and append image to podcast-content container
+    const podcastIconImg = document.createElement("img");
+    podcastIconImg.setAttribute("src", this.podcastIcon);
+    podcastIconImg.setAttribute("alt", `${this.host} icon`);
+    podcastContent.appendChild(podcastIconImg);
 
-        // create and append image to podcast-content container
-        const podcastDescription = document.createElement("div");
-        podcastDescription.setAttribute("class", "podcast-description");
-        podcastDescription.textContent = this.description;
-        podcastContent.appendChild(podcastDescription);
+    // content-2: create and append image to podcast-content container
+    const podcastDescription = document.createElement("div");
+    podcastDescription.setAttribute("class", "podcast-description");
+    podcastDescription.textContent = this.description;
+    podcastContent.appendChild(podcastDescription);
 
     // append podcast-content to podcast
     podcast.appendChild(podcastContent);
 
-    // // Create and append podcast links
-    const podcastLinks = document.createElement('div');
-    podcastLinks.setAttribute('class', 'podcast-links');
+    // Create and append podcast links
+    const podcastLinks = document.createElement("div");
+    podcastLinks.setAttribute("class", "podcast-links");
     this.links.forEach((link, index) => {
-        const linkElement = document.createElement('a');
-        linkElement.setAttribute('href', link);
-        linkElement.setAttribute('target', '_blank');
-        linkElement.setAttribute('rel', 'noopener noreferrer')
-    
-        // Set different innerHTML based on the index
-        if (index === 0) {
-            linkElement.innerHTML = `<img src="./files/images/link-icons/youtube.svg" height="25px" width="25px" alt="YouTube">`;
-        } else if (index === 1) {
-            linkElement.innerHTML = `<img src="./files/images/link-icons/spotify.svg" height="25px" width="25px" alt="Spotify">`;
-        } else if (index === 2) {
-            linkElement.innerHTML = `<img src="./files/images/link-icons/apple.svg" height="25px" width="25px" alt="Apple Podcast">`;
-        }
-        podcastLinks.appendChild(linkElement);
-    })
+      const linkElement = document.createElement("a");
+      linkElement.setAttribute("href", link);
+      linkElement.setAttribute("target", "_blank");
+      linkElement.setAttribute("rel", "noopener noreferrer");
+
+      // Set different innerHTML based on the index
+      if (index === 0) {
+        linkElement.innerHTML = `<img src="./files/images/link-icons/youtube.svg" height="25px" width="25px" alt="YouTube">`;
+      } else if (index === 1) {
+        linkElement.innerHTML = `<img src="./files/images/link-icons/spotify.svg" height="25px" width="25px" alt="Spotify">`;
+      } else if (index === 2) {
+        linkElement.innerHTML = `<img src="./files/images/link-icons/apple.svg" height="25px" width="25px" alt="Apple Podcast">`;
+      }
+      podcastLinks.appendChild(linkElement);
+    });
     podcast.appendChild(podcastLinks);
 
     // finally, append podcast to podcasts
@@ -90,7 +90,6 @@ class Podcast {
 //         </div>
 // `;
 
-
 // podcast-icons are probably too heavy / too many KB
 const podcast1 = new Podcast(
   "Julian Dorey",
@@ -115,25 +114,25 @@ const podcast2 = new Podcast(
 );
 
 const podcast3 = new Podcast(
-    "Joe Rogan",
-    "./files/images/podcast-icons/joe-rogan.jpg",
-    "Joe Rogan interviews a wide range of guests, discussing topics like culture, science, politics, and personal experiences in an open and unfiltered format.",
-    [
-      "https://www.youtube.com/@joerogan",
-      "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
-      "https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272",
-    ]
+  "Joe Rogan",
+  "./files/images/podcast-icons/joe-rogan.jpg",
+  "Joe Rogan interviews a wide range of guests, discussing topics like culture, science, politics, and personal experiences in an open and unfiltered format.",
+  [
+    "https://www.youtube.com/@joerogan",
+    "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+    "https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272",
+  ]
 );
 
 const podcast4 = new Podcast(
-    "Wartime Stories",
-    "./files/images/podcast-icons/wartime-stories.jpg",
-    "Wartime Stories is a show about the mysterious encounters documented primarily by military servicemen and servicewomen.",
-    [
-      "https://www.youtube.com/@WartimeStories",
-      "https://open.spotify.com/show/23Xmy3AvSXKIiHDnaysyN8",
-      "https://podcasts.apple.com/us/podcast/wartime-stories/id1753290951",
-    ]
+  "Wartime Stories",
+  "./files/images/podcast-icons/wartime-stories.jpg",
+  "Wartime Stories is a show about the mysterious encounters documented primarily by military servicemen and servicewomen.",
+  [
+    "https://www.youtube.com/@WartimeStories",
+    "https://open.spotify.com/show/23Xmy3AvSXKIiHDnaysyN8",
+    "https://podcasts.apple.com/us/podcast/wartime-stories/id1753290951",
+  ]
 );
 
 export { podcastsDiv };
