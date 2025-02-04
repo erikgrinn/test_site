@@ -123,6 +123,17 @@ const podcast3 = new Podcast(
       "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
       "https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272",
     ]
-  );
+);
+
+const podcast4 = new Podcast(
+    "Wartime Stories",
+    "./files/images/podcast-icons/wartime-stories.jpg",
+    "Wartime Stories is a show about the mysterious encounters documented primarily by military servicemen and servicewomen.",
+    [
+      "https://www.youtube.com/@WartimeStories",
+      "https://open.spotify.com/show/23Xmy3AvSXKIiHDnaysyN8",
+      "https://podcasts.apple.com/us/podcast/wartime-stories/id1753290951",
+    ]
+);
 
 export { podcastsDiv };
