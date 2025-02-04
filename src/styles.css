@@ -119,6 +119,7 @@ footer {
 
 .podcast:hover {
   border-left-width: 12px;
+  background-color: var(--main-color);
 }
 
 .podcast-title {
