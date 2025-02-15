@@ -3,35 +3,17 @@
 import "./styles.css";
 import { homeDiv, initializeHomeChart} from "./home.js";
 import { podcastsDiv } from './podcasts.js';
-// import { hearingsDiv } from './hearings.js';
-// import { encountersDiv } from './encounters.js';
-// import { booksDiv } from './books.js';
-// import { documentariesDiv } from './documentaries.js';
-// import { moviesDiv } from './movies.js';
-// import { gamesDiv } from './games.js';
 import { notesDiv } from './notes.js'
 
 const contentDiv = document.getElementById('content')
 
 const homeBtn = document.getElementById('homeBtn');
 const podcastsBtn = document.getElementById('podcastsBtn')
-const hearingsBtn = document.getElementById('hearingsBtn');
-const encountersBtn = document.getElementById('encountersBtn');
-const booksBtn = document.getElementById('booksBtn');
-const documentariesBtn = document.getElementById('documentariesBtn');
-const moviesBtn = document.getElementById('moviesBtn');
-const gamesBtn = document.getElementById('gamesBtn');
 const notesBtn = document.getElementById('notesBtn');
 
 const divMapping = {
     'homeBtn': [homeBtn, homeDiv],
     'podcastsBtn': [podcastsBtn, podcastsDiv],
-    // 'hearingsBtn': [hearingsBtn, hearingsDiv],
-    // 'encountersBtn': [encountersBtn, encountersDiv],
-    // 'booksBtn': [booksBtn, booksDiv],
-    // 'documentariesBtn': [documentariesBtn, documentariesDiv],
-    // 'moviesBtn': [moviesBtn, moviesDiv],
-    // 'gamesBtn': [gamesBtn, gamesDiv],
     'notesBtn': [notesBtn, notesDiv]
   };
 
