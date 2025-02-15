@@ -9,6 +9,7 @@ import { podcastsDiv } from './podcasts.js';
 // import { documentariesDiv } from './documentaries.js';
 // import { moviesDiv } from './movies.js';
 // import { gamesDiv } from './games.js';
+import { notesDiv } from './notes.js'
 
 const contentDiv = document.getElementById('content')
 
@@ -20,6 +21,7 @@ const booksBtn = document.getElementById('booksBtn');
 const documentariesBtn = document.getElementById('documentariesBtn');
 const moviesBtn = document.getElementById('moviesBtn');
 const gamesBtn = document.getElementById('gamesBtn');
+const notesBtn = document.getElementById('notesBtn');
 
 const divMapping = {
     'homeBtn': [homeBtn, homeDiv],
@@ -29,7 +31,8 @@ const divMapping = {
     // 'booksBtn': [booksBtn, booksDiv],
     // 'documentariesBtn': [documentariesBtn, documentariesDiv],
     // 'moviesBtn': [moviesBtn, moviesDiv],
-    // 'gamesBtn': [gamesBtn, gamesDiv]
+    // 'gamesBtn': [gamesBtn, gamesDiv],
+    'notesBtn': [notesBtn, notesDiv]
   };
 
 // load home content by default
